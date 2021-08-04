@@ -1,6 +1,6 @@
 import { Col, Row } from 'antd'
 import React from 'react'
-import ChatWinDow from './ChatWinDow'
+import ChatWindow from './ChatWindow'
 import SideBar from './SideBar'
 
 export default function ChatRoom() {
@@ -11,7 +11,7 @@ export default function ChatRoom() {
       </Col>
 
       <Col span={18}>
-        <ChatWinDow />
+        <ChatWindow />
       </Col>
     </Row>
   )

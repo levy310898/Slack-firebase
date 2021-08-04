@@ -1,0 +1,53 @@
+.ChatRoom{
+  height: 100vh;
+}
+
+.ChatRoom__header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+  padding:0 16px;
+  border-bottom: 1px solid rgb(230,230,230);
+}
+
+.ChatRoom__header__info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ChatRoom__header__title{
+  font-weight: bold;
+  margin:0;
+}
+
+.ChatRoom__header__description{
+  font-size: 12px;
+}
+
+.ChatRoom__header__invite{
+  display: flex;
+  align-items: center;
+}
+
+.ChatRoom__header__invite button{
+  margin-right: 5px;
+}
+
+.ChatRoom__content{
+  padding:0 16px;
+  height: calc(100% - 56px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.ChatRoom__content__form{
+  display: flex;
+    justify-content: space-between;
+}
+
+.ChatRoom__content__form .ant-form-item{
+  flex:1;
+}
