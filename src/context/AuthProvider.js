@@ -13,9 +13,10 @@ export default function AuthProvider({children}) {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const unsubcribe = auth.onAuthStateChanged(user => {
+      console.log('on user change: ', user);
       if (user) {
-        const { displayName, email, uid, photoUrl } = user;
-        setUser({ displayName, email, uid, photoUrl});
+        const { displayName, email, uid, photoURL } = user;
+        setUser({ displayName, email, uid, photoURL});
         setLoading(false);
         history.push('/');
       } else {

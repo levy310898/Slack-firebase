@@ -1,6 +1,8 @@
 import { Button, Avatar, Typography } from 'antd'
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components';
+import { auth, db } from 'Firebase/config';
+import { AuthContext } from 'context/AuthProvider';
 
 const WrapperStyled = styled.div`
   display:flex;
@@ -14,14 +16,23 @@ const WrapperStyled = styled.div`
   }
 `;
 export default function UserInfo() {
+
+  const {displayName,photoURL} = React.useContext(AuthContext);
+
+  useEffect(() => {
+    // khi firebase database co su thay doi thi ham se thuc thi
+    console.log('user = ', displayName);
+  }, [])
+
+  
   return (
     <WrapperStyled>
       <div>
-        <Avatar>L</Avatar>
-        <Typography.Text className = 'username'>Le Vy</Typography.Text>
+        <Avatar src={photoURL}>{ photoURL?'':displayName?.charAt(0).toUpperCase()}</Avatar>
+        <Typography.Text className='username'>{displayName}</Typography.Text>
       </div>
 
-      <Button ghost>Đăng xuất</Button>
+      <Button ghost onClick = {()=>auth.signOut()}>Đăng xuất</Button>
 
     </WrapperStyled>
     
