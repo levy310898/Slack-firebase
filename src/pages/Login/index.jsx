@@ -14,9 +14,7 @@ export default function LoginPage() {
   const handleFbLogin = async() => {
     try {
       const { additionalUserInfo,user} = await auth.signInWithPopup(fbProvider);
-      console.log("new user: ",additionalUserInfo.isNewUser);
       if (additionalUserInfo.isNewUser) {
-        console.log('run add data');
         addDocument('users', {
           displayName: user.displayName,
           email: user.email,
@@ -33,7 +31,6 @@ export default function LoginPage() {
   const handleGoogleLogin = async () => {
     try {
       const data = auth.signInWithPopup(googleProvider);
-      console.log('data = ', { data });
     } catch (error) {
       console.log(error.message);
     }

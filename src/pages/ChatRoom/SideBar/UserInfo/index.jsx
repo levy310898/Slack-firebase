@@ -21,7 +21,6 @@ export default function UserInfo() {
 
   useEffect(() => {
     // khi firebase database co su thay doi thi ham se thuc thi
-    console.log('user = ', displayName);
   }, [])
 
   
