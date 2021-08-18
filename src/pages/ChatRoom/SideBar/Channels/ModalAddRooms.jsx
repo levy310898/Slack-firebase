@@ -19,11 +19,15 @@ class ModalAddRooms extends Component {
 
   handleCancel = () => {
     this.setState({ isModalVisible: false });
+    this.formRef.current.resetFields();
   };
 
   onFinish = (values) => {
     const data = { ...values, members: [this.props.uid] };
-    addDocument('rooms', data, ()=>this.setState({ isModalVisible: false }));
+    addDocument('rooms', data);
+    this.setState({ isModalVisible: false }, () => {
+      this.formRef.current.resetFields();
+    });
   }
 
   onFinishFailed = (err) => {
@@ -34,6 +38,7 @@ class ModalAddRooms extends Component {
     return (
       <Modal title="Basic Modal" visible={this.state.isModalVisible} onOk={this.handleOk} onCancel={this.handleCancel}>
         <Form
+          initialValues={{ name: '', description: '' }}
           ref={this.formRef}
           onFinish={this.onFinish}
           onFinishFailed = {this.onFinishFailed}
